@@ -1,12 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
-  #check if its a devise controller then update the whitelisted parameters
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
-  def configure_permitted_parameters
-    #devise for ruby v5 function to add name to sign up and edit pages
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
-  end
+  #moved to a module so that we aren't doing too many things in a controller where it shouldn't be
+  include DeviseWhitelist
 end
