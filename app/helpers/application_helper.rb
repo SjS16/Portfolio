@@ -15,4 +15,8 @@ module ApplicationHelper
       content_tag(:p, greeting, class: "source-greeting")
     end
   end
+
+  def set_copyright
+    SimpsonViewTool::Renderer.copyright "Steph Simpson", "All rights reserved"
+  end
 end
