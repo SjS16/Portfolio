@@ -3,6 +3,7 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8 blog-main">
+          <%= paginate @blogs %>
           <%= render @blogs %>
         </div>
         <%= render "shared/blogs_aside" %>
