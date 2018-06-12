@@ -15,17 +15,20 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @page_title = "Steph Simpson | #{@blog.title}"
+    @topics = Topic.all.limit(12)
     @seo_keywords = @blog.body
   end
 
   # GET /blogs/new
   def new
     @blog = Blog.new
+    @topics = Topic.all.limit(12)
     @page_title = "Steph Simpson | New Blog"
   end
 
   # GET /blogs/1/edit
   def edit
+    @topics = Topic.all.limit(12)
     @page_title = "Steph Simpson | Edit #{@blog.title}"
   end
 
