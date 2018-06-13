@@ -2,6 +2,7 @@
 
     <main role="main" class="container">
       <div class="row">
+        <%= render "blogs/featured", featured: @featured %>
         <div class="col-md-8 blog-main">
           <%= paginate @blogs %>
           <%= render @blogs %>
