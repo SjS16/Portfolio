@@ -4,7 +4,7 @@
 
 .blog-header {
   line-height: 1;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #696969;
 }
 
 .blog-header-logo {
@@ -135,4 +135,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .social-links li {
   font-size: 2.5em
+}
+
+/*
+ * Custom styles
+ */
+
+a.blog-nav:hover{
+  border-bottom: .25rem solid grey;
+  padding-bottom: 4px;
+  text-decoration: none;
+}
+
+a {
+  color:#6599d0;
+}
+
+a:hover {
+  color:#3a77b9;
 }
