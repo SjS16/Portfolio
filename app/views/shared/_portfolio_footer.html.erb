@@ -1,0 +1,13 @@
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <% if logged_in?(:site_admin) %>
+      <%= link_to "Create New Item", new_portfolio_path  if logged_in?(:site_admin) %> |
+      <% end %>
+      <%= link_to "View all Portfolio Items", portfolios_path %> |
+      <a href="#">Back to top</a>
+    </p>
+    <p><%= set_copyright %></p>
+    <p>Want to know more? <%= link_to "Visit my homepage", root_path %> or check out <%= link_to "my blog", blogs_path %>!</p>
+  </div>
+</footer>
