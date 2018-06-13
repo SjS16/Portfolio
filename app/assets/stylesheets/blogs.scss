@@ -147,6 +147,12 @@ a.blog-nav:hover{
   text-decoration: none;
 }
 
+a.blog-nav.active{
+  border-bottom: .25rem solid grey;
+  padding-bottom: 4px;
+  text-decoration: none;
+}
+
 a {
   color:#6599d0;
 }
