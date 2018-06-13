@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status, :toggle_featured]
   before_action :set_topics, only: [:index, :show, :new, :edit]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
@@ -7,7 +7,8 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.page(params[:page]).per(5)
+    @blogs = Blog.where( featured: 0 ).page(params[:page]).per(3)
+    @featured = Blog.find_by( featured: 1 )
     @page_title = "Steph Simpson | My Portfolio Blog"
   end
 
@@ -68,6 +69,17 @@ class BlogsController < ApplicationController
   def toggle_status
     @blog.draft? ? @blog.published! : @blog.draft!
     redirect_to blogs_url, notice: 'Blog status has been updated!'
+  end
+
+  def toggle_featured
+    if @blog.featured?
+      @blog.standard!
+    else
+      @blog.featured!
+      @blog.falsify_all_others
+    end
+
+    redirect_to blogs_url, notice: 'Featured blog set!'
   end
 
   private
