@@ -9,15 +9,15 @@ class Portfolio < ApplicationRecord
   mount_uploader :thumb_image, PortfolioUploader
   mount_uploader :main_image, PortfolioUploader
 
-  def self.angular
-    where(subtitle: "Angular")
+  def self.ruby_on_rails
+    self.joins(:technologies).where(:technologies => {:name => "Ruby on Rails"})
   end
 
   def self.by_position
     self.order("position ASC")
   end
 
-  scope :ruby_on_rails, -> { where(subtitle: "Ruby on Rails") }
+  # scope :ruby_on_rails, -> { where(subtitle: "Ruby on Rails") }
 
   def set_defaults
     self.main_image ||= Placeholder.image_generator(height: '600', width: '400')

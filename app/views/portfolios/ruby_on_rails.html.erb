@@ -1,15 +1,18 @@
-<h1> Portfolio </h1>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row <%= "sortable" if logged_in?(:site_admin) %>">
+      <% if @ruby_portfolio_items.size > 0 %>
+        <%= render partial: "portfolio_item", collection: @ruby_portfolio_items %>
+      <% else %>
+        <div>
+          <h5>Uh-oh!</h5><br>
+          <p>Looks like there isn't anything here! Please go back to my portfolio index to see the rest of my projects!</p>
+          <%= link_to "Back to the portfolio!", portfolios_path, class: "btn btn-info my-2" %>
 
-<%= link_to "Create New Item", new_portfolio_path if logged_in?(:site_admin) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<% @ruby_portfolio_items.each do |item| %>
-  <p><%= link_to item.title, portfolio_show_path(item) %></p>
-  <p><%= item.subtitle %></p>
-  <p><%= item.body %></p>
-  <%= image_tag item.thumb_image if !item.thumb_image.nil? %>
-
-<%= link_to "Edit Portfolio Item", edit_portfolio_path(item) if logged_in?(:site_admin) %>
-<%= link_to "Delete Portfolio Item", portfolio_path(item), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
-
-<% end %>
 

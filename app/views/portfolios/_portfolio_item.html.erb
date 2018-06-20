@@ -3,8 +3,8 @@
     <%= image_tag portfolio_item.thumb_image.to_s, width: '100%' unless portfolio_item.thumb_image.nil? %>
     <div class="card-body">
       <p class="card-text">
-      <span><%= portfolio_item.title %></span>
-      <span><%= portfolio_item.subtitle %></span>
+      <span class="portfolio-title"><%= portfolio_item.title %></span><br>
+      <span class="portfolio-subtitle"><%= portfolio_item.subtitle %></span>
       </p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
@@ -14,6 +14,7 @@
           <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Delete", portfolio_path(portfolio_item), method: :delete, data: { confirm: 'Are you sure?' } %></button>
           <% end %>
         </div>
+        <small class="text-muted tech-count">Technologies count: <%= portfolio_item.technologies.count %></small>
       </div>
     </div>
   </div>
