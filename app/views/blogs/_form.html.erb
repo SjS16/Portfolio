@@ -1,9 +1,9 @@
 <div class="card-block">
   <%= form_with(model: blog, local: true) do |form| %>
     <% if blog.errors.any? %>
-        <% blog.errors.full_messages.each do |error| %>
-          <%= js add_gritter(error, title: "Steph Simpson Portfolio", sticky: false) %>
-        <% end %>
+      <% blog.errors.full_messages.each do |error| %>
+        <%= alert_generator error %>
+      <% end %>
     <% end %>
 
     <div class="form-group">
