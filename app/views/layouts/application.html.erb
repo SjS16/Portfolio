@@ -23,15 +23,13 @@
           muted: true,
           poster: 'home.png' %>
 
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
       <%= render "shared/application_nav" %>
 
       <%= yield %>
 
       <%= render "shared/application_footer" %>
+
+      <%= alerts %>
 
       <%= source_helper("application") %>
     </div>

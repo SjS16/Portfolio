@@ -71,3 +71,4 @@ gem 'mini_magick', '~> 4.8'
 gem 'carrierwave-aws', '~> 1.0'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem "cocoon"
+gem "gritter"
