@@ -28,11 +28,15 @@ module ApplicationHelper
       },
       {
         url: about_path,
-        title: "About Me"
+        title: "About"
       },
       {
         url: contact_path,
         title: "Contact"
+      },
+      {
+        url: tech_news_path,
+        title: "Tech News"
       },
       {
         url: blogs_path,
