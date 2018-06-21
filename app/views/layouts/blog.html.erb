@@ -14,8 +14,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <div class="container">
       <%= render "shared/blog_nav" %>
@@ -24,6 +22,8 @@
     </div>
 
     <%= source_helper("blog") %>
+
+    <%= render 'shared/alerts'%>
 
     <%= render "shared/blog_footer" %>
 

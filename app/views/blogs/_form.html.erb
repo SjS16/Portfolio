@@ -1,15 +1,9 @@
 <div class="card-block">
   <%= form_with(model: blog, local: true) do |form| %>
     <% if blog.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
-
-        <ul>
-        <% blog.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <% blog.errors.full_messages.each do |error| %>
+          <%= js add_gritter(error, title: "Steph Simpson Portfolio", sticky: false) %>
         <% end %>
-        </ul>
-      </div>
     <% end %>
 
     <div class="form-group">
