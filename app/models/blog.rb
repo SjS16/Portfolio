@@ -8,6 +8,8 @@ class Blog < ApplicationRecord
 
   belongs_to :topic
 
+  has_many :comments, dependent: :destroy
+
   def falsify_all_others
     Blog.where('id != ?', self.id).update_all("featured = 0")
   end
