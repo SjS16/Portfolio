@@ -11,4 +11,5 @@ class Blog < ApplicationRecord
   def falsify_all_others
     Blog.where('id != ?', self.id).update_all("featured = 0")
   end
+
 end

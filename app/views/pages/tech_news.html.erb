@@ -1,5 +1,6 @@
-<main role="main" class="inner cover home-page">
+<main role="main" class="inner cover home-page" style="margin-top:0px">
   <h1 class="cover-heading">Tech News</h1>
+  <%= js add_gritter("Here are six recent tweets using #TechNews! Refresh the page to see if there are any new ones!", :title => "Steph Simpson Portfolio") %>
     <div class="row">
     <% @tweets.each do |tweet| %>
       <div class="col-md-6">

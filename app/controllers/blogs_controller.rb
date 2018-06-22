@@ -7,9 +7,14 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.where( featured: 0 ).page(params[:page]).per(3)
     @featured = Blog.find_by( featured: 1 )
     @page_title = "Steph Simpson | My Portfolio Blog"
+    if params[:topic]
+      @topic = Topic.find_by(title: params[:topic])
+      @blogs = Blog.where( featured: 0 ).where(topic_id: @topic.id).page(params[:page]).per(3)
+    else
+      @blogs = Blog.where( featured: 0 ).page(params[:page]).per(3)
+    end
   end
 
   # GET /blogs/1
