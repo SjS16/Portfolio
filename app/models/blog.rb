@@ -14,4 +14,8 @@ class Blog < ApplicationRecord
     Blog.where('id != ?', self.id).update_all("featured = 0")
   end
 
+  def self.recent
+    order("created_at DESC")
+  end
+
 end

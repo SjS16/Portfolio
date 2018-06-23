@@ -9,11 +9,20 @@ class BlogsController < ApplicationController
   def index
     @featured = Blog.find_by( featured: 1 )
     @page_title = "Steph Simpson | My Portfolio Blog"
-    if params[:topic]
-      @topic = Topic.find_by(title: params[:topic])
-      @blogs = Blog.where( featured: 0 ).where(topic_id: @topic.id).page(params[:page]).per(3)
+    if logged_in?(:site_admin)
+      if params[:topic]
+        @topic = Topic.find_by(title: params[:topic])
+        @blogs = Blog.recent.where( featured: 0 ).where(topic_id: @topic.id).page(params[:page]).per(3)
+      else
+        @blogs = Blog.recent.where( featured: 0 ).page(params[:page]).per(3)
+      end
     else
-      @blogs = Blog.where( featured: 0 ).page(params[:page]).per(3)
+      if params[:topic]
+        @topic = Topic.find_by(title: params[:topic])
+        @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).where(topic_id: @topic.id).page(params[:page]).per(3)
+      else
+        @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).page(params[:page]).per(3)
+      end
     end
   end
 
@@ -83,6 +92,7 @@ class BlogsController < ApplicationController
       @blog.standard!
     else
       @blog.featured!
+      @blog.published!
       @blog.falsify_all_others
     end
 
