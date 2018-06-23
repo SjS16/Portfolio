@@ -165,3 +165,34 @@ a:hover {
 .jumbotron {
   margin-bottom: 1rem;
 }
+
+.comment-card {
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.comment-card-block {
+  margin: 10px;
+}
+
+.comment-content {
+  margin-bottom: 10px
+}
+
+.comment-details {
+  font-size: .8em;
+  font-style: italic
+}
+
+.counter {
+    float: right;
+    font-size: .8rem;
+    border: 1px solid grey;
+    padding: 3px;
+    margin: 3px;
+    border-radius: 6px;
+}
+
+#comments {
+  margin-top: 50px
+}
