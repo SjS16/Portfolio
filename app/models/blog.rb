@@ -4,7 +4,7 @@ class Blog < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  validates_presence_of :title, :body
+  validates_presence_of :title, :body, :topic_id
   validates :body, length: { minimum: 250, maximum: 10000 }
 
   belongs_to :topic
