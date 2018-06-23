@@ -19,4 +19,10 @@ module BlogsHelper
       link_to "Set to Standard Blog", toggle_featured_blog_path(blog)
     end
   end
+
+  def topic_helper(topic_params, topic_nav)
+    if topic_params == topic_nav.title
+      "active-topic"
+    end
+  end
 end
