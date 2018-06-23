@@ -1,0 +1,12 @@
+<div class="topic-post">
+  <h4 class="topic-post-title"><%= topic.title %></h4>
+  <div class="topic-details">
+    <% if logged_in?(:site_admin) %>
+      <div class="topic-post-meta">
+      <%= link_to 'Edit', edit_topic_path(topic) %> |
+      <%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <% end%>
+    <div class="topic-post-subtitle"><%= topic.blogs.count %> blogs under this topic</div>
+    <div class="topic-time">Created <%= distance_of_time_in_words(topic.created_at, Time.now) %> ago</div>
+  </div>
+</div>

@@ -15,13 +15,12 @@
     </div>
 
     <div class="form-group">
-      <%= form.label :topic_id %>
       <%= form.collection_select(:topic_id, Topic.all, :id, :title,
                                   {
-                                    selected: blog.topic.id,
-                                    include_blank: true
+                                    prompt: "Pick a topic",
+                                    selected: blog.topic
                                   },
-                                    class: 'form_control') %>
+                                    class: 'form-control dropdown-toggle') %>
     </div>
 
     <div class="form-group">

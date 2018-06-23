@@ -99,7 +99,6 @@ class BlogsController < ApplicationController
       @blog.published!
       @blog.falsify_all_others
     end
-
     redirect_to blogs_url, notice: 'Featured blog set!'
   end
 
@@ -110,7 +109,7 @@ class BlogsController < ApplicationController
     end
 
     def set_topics
-      @topics = Topic.all.limit(12)
+      @topic_nav = Topic.left_joins(:blogs).group(:id).order('COUNT(blogs.id) DESC').limit(7)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

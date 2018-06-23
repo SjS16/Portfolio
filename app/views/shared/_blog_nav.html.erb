@@ -7,8 +7,9 @@
       <a class="blog-header-logo text-dark" href="#">Blog</a>
     </div>
     <div class="col-5 d-flex justify-content-end align-items-center">
+      <%= link_to 'Topics', topics_path, class: "btn btn-sm btn-outline-secondary m-2" if logged_in?(:site_admin) %>
       <%= link_to 'New Blog', new_blog_path, class: "btn btn-sm btn-outline-secondary m-2" if logged_in?(:site_admin) %>
-      <%= login_helper "btn btn-sm btn-outline-secondary m-2" %>
+      <%= login_helper "btn btn-sm btn-dark m-2" %>
     </div>
   </div>
 </header>
