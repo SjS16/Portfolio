@@ -5,6 +5,7 @@ class Blog < ApplicationRecord
   friendly_id :title, use: :slugged
 
   validates_presence_of :title, :body
+  validates :body, length: { minimum: 250, maximum: 10000 }
 
   belongs_to :topic
 
