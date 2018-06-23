@@ -1,0 +1,10 @@
+<% unless current_user.is_a? GuestUser %>
+  <%= form_for @comment, url: '#' do |f|  %>
+    <div class="form-group">
+      <%= f.label :content, "Comment", style: "font-weight:500" %>
+      <%= f.text_area :content, class: "form-control" %>
+      <span class="counter">1000</span>
+    </div>
+    <%= f.submit 'Post Comment', class: "btn btn-dark"%>
+  <% end %>
+<% end %>
