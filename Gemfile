@@ -74,3 +74,5 @@ gem "cocoon"
 gem 'gritter', git: 'https://github.com/jordanhudgens/gritter'
 gem "twitter"
 gem 'redis', '~> 3.3', '>= 3.3.1'
+gem 'redcarpet'
+gem 'coderay'
