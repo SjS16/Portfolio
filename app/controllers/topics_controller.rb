@@ -61,7 +61,7 @@ class TopicsController < ApplicationController
   end
 
   def set_topics
-    @topic_nav = Topic.left_joins(:blogs).group(:id).order('COUNT(blogs.id) DESC').limit(7)
+    @topic_nav = Topic.with_blogs.left_joins(:blogs).group(:id).order('COUNT(blogs.id) DESC').limit(7)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
