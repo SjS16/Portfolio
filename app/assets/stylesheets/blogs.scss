@@ -120,6 +120,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #999;
 }
 
+.blog-post-meta a{
+  margin: 0px 5px
+}
+
 /*
  * Footer
  */
@@ -212,4 +216,9 @@ a:hover {
 
 .active-topic {
   font-weight: 900
+}
+
+.breadcrumb-icon {
+      font-size: 1.25em;
+    margin-top: -.2em;
 }
