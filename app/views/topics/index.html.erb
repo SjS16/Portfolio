@@ -9,7 +9,7 @@
           <%= paginate @topics %>
           <%= render @topics %>
         </div>
-        <%= render "shared/blogs_aside" %>
+        <%= render "shared/blogs_aside", blogs_by_month: @blogs_by_month %>
       </div>
       <%= paginate @topics %>
     </main>

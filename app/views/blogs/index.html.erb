@@ -5,7 +5,7 @@
           <%= paginate @blogs %>
           <%= render @blogs %>
         </div>
-        <%= render "shared/blogs_aside" %>
+        <%= render "shared/blogs_aside", blogs_by_month: @blogs_by_month %>
       </div>
           <%= paginate @blogs %>
     </main>

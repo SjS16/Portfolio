@@ -7,4 +7,8 @@ class Topic < ApplicationRecord
     includes(:blogs).where.not(blogs: { id: nil })
   end
 
+  def self.recent
+    order("created_at DESC")
+  end
+
 end

@@ -1,11 +1,12 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:edit, :update, :destroy]
   before_action :set_topics, only: [:index, :show, :new, :edit, :create]
+  before_action :monthly_blogs, only: [:index, :new, :edit]
   layout 'blog'
   access all: [:index], user: [:index], site_admin: :all
 
   def index
-    @topics = Topic.all.page(params[:page]).per(8)
+    @topics = Topic.recent.all.page(params[:page]).per(8)
   end
 
   def new
@@ -67,6 +68,10 @@ class TopicsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def topic_params
     params.require(:topic).permit(:title)
+  end
+
+  def monthly_blogs
+    @blogs_by_month = Blog.all.group_by { |blog| blog.created_at.strftime("%B %Y") }
   end
 
 end

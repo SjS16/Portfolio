@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status, :toggle_featured]
   before_action :set_topics, only: [:index, :show, :new, :edit, :create]
+  before_action :monthly_blogs, only: [:index, :show, :new, :edit, :create]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
@@ -20,6 +21,9 @@ class BlogsController < ApplicationController
       if params[:topic]
         @topic = Topic.find_by(title: params[:topic])
         @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).where(topic_id: @topic.id).page(params[:page]).per(3)
+      elsif params[:month]
+        date = Date.parse("1 #{params[:month]}")
+        @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).where(:created_at => date..date.end_of_month)
       else
         @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).page(params[:page]).per(3)
       end
@@ -115,5 +119,9 @@ class BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body, :topic_id, :status)
+    end
+
+    def monthly_blogs
+      @blogs_by_month = Blog.all.group_by { |blog| blog.updated_at.strftime("%B %Y") }
     end
 end

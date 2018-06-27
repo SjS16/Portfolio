@@ -7,5 +7,5 @@
   <%= link_to 'Show', @blog %> |
   <%= link_to 'Back', blog_path(@blog) %>
 </div>
-<%= render "shared/blogs_aside" %>
+<%= render "shared/blogs_aside", blogs_by_month: @blogs_by_month %>
 </div>
