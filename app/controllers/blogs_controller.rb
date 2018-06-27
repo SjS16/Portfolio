@@ -23,7 +23,7 @@ class BlogsController < ApplicationController
         @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).where(topic_id: @topic.id).page(params[:page]).per(3)
       elsif params[:month]
         date = Date.parse("1 #{params[:month]}")
-        @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).where(:created_at => date..date.end_of_month)
+        @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).where(:created_at => date..date.end_of_month).page(params[:page]).per(3)
       else
         @blogs = Blog.recent.where( featured: 0 ).where( status: 1 ).page(params[:page]).per(3)
       end
