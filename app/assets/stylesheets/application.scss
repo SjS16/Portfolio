@@ -27,9 +27,11 @@ a:hover {
  * Base structure
  */
 
+
 html,
 body {
-  height: 100%;
+    height: max-content;
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -44,9 +46,20 @@ body {
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6, {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 .cover-container {
   width: 65em;
   max-width: 65em;
+  height: -webkit-fill-available;
 }
 
 
@@ -198,4 +211,16 @@ body {
   background-color: rgba(128, 128, 128, 0.73);
   border-radius: 4px;
   padding: 30px;
+}
+
+.card-block {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid grey;
+  padding: 10px
+}
+
+.skill {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

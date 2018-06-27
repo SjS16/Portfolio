@@ -1,12 +1,20 @@
-<p id="notice"><%= notice %></p>
-
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8 blog-main">
-          <h2><%= @blog.title %></h2>
-            <%= link_to 'Edit |', edit_blog_path(@blog) if logged_in?(:site_admin) %>
-            <%= link_to 'Back', blogs_path %>
-          <p><%= @blog.body %>
+          <h1><%= @blog.title %></h1>
+          <nav class="breadcrumb">
+            <%= link_to "Home", root_path, class: 'breadcrumb-item'%>
+            <%= link_to "Blogs", blogs_path, class: 'breadcrumb-item'%>
+            <%= link_to @blog.topic.title, blogs_path("topic" => @blog.topic.title), class: 'breadcrumb-item'%>
+            <span class="breadcrumb-item active"><%= @blog.title %></span>
+
+            <span class="ml-auto breadcrumb-icon">
+              <%= link_to fa_icon('pencil'), edit_blog_path(@blog) if logged_in?(:site_admin)%>
+              <%= link_to fa_icon('trash'), @blog, method: :delete, data: { confirm: "Are you sure you want to delete this post?" } if logged_in?(:site_admin)%>
+            </span>
+          </nav>
+          <h5><%= @blog.topic.title %></h5>
+          <p><%= markdown @blog.body %>
           <hr>
           <%= render 'comments/form', comment: @comment %>
 
@@ -15,10 +23,25 @@
           </div>
 
         </div>
-        <%= render "shared/blogs_aside" %>
+        <%= render "shared/blogs_aside", blogs_by_month: @blogs_by_month %>
       </div>
     </main>
   </div>
-
+<script>
+$('document').ready(function () {
+  const textField = document.querySelector('textarea#comment_content');
+  let counter = textField.parentElement.getElementsByClassName('counter')[0].innerText;
+  textField.addEventListener('keyup', function () {
+    const count = this.value.length;
+    newCounter = counter - count;
+    this.parentElement.querySelector('.counter').innerText = newCounter;
+    if (newCounter < 0) {
+      this.parentElement.querySelector('.counter').style.color = 'red';
+    } else if (newCounter > 0) {
+      this.parentElement.querySelector('.counter').style.color = 'black';
+    }
+  });
+});
+</script>
 <br>
 

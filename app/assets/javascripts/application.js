@@ -14,24 +14,10 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require html.sortable
-//= require cocoon
 //= require gritter
+//= require cocoon
 //= require cable
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 
-$('document').ready(function () {
-  const textField = document.querySelector('textarea#comment_content');
-  let counter = textField.parentElement.getElementsByClassName('counter')[0].innerText;
-  textField.addEventListener('keyup', function () {
-    const count = this.value.length;
-    newCounter = counter - count;
-    this.parentElement.querySelector('.counter').innerText = newCounter;
-    if (newCounter < 0) {
-      this.parentElement.querySelector('.counter').style.color = 'red';
-    } else if (newCounter > 0) {
-      this.parentElement.querySelector('.counter').style.color = 'black';
-    }
-  });
-});

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
     <main role="main" class="container">
       <div class="row">
         <%= render "blogs/featured", featured: @featured %>
@@ -7,7 +5,7 @@
           <%= paginate @blogs %>
           <%= render @blogs %>
         </div>
-        <%= render "shared/blogs_aside" %>
+        <%= render "shared/blogs_aside", blogs_by_month: @blogs_by_month %>
       </div>
           <%= paginate @blogs %>
     </main>

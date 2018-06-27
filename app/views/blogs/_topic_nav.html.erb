@@ -1,7 +1,7 @@
 <div class="nav-scroller py-1 mb-2">
   <nav class="nav d-flex justify-content-between">
-    <% @topics.each do |t| %>
-      <%= link_to t.title, blogs_path("topic" => t.title), class:"p-2 text-muted" %>
+    <% @topic_nav.each do |t| %>
+      <%= link_to t.title, blogs_path("topic" => t.title), class:"p-2 text-muted #{topic_helper(params[:topic], t) if params[:topic]}" %>
     <% end %>
     <%= link_to "View All", blogs_path, class:"p-2 text-muted" %>
   </nav>

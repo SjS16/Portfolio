@@ -4,7 +4,8 @@ class Blog < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  validates_presence_of :title, :body
+  validates_presence_of :title, :body, :topic_id
+  validates :body, length: { minimum: 250, maximum: 10000 }
 
   belongs_to :topic
 
@@ -12,6 +13,10 @@ class Blog < ApplicationRecord
 
   def falsify_all_others
     Blog.where('id != ?', self.id).update_all("featured = 0")
+  end
+
+  def self.recent
+    order("created_at DESC")
   end
 
 end

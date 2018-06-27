@@ -1,0 +1,18 @@
+<div class="row">
+  <h1>Topics</h1>
+  <%= link_to 'New Topic', new_topic_path, class: "btn btn-sm btn-outline-secondary m-3" if logged_in?(:site_admin) %>
+</div>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <%= paginate @topics %>
+          <%= render @topics %>
+        </div>
+        <%= render "shared/blogs_aside", blogs_by_month: @blogs_by_month %>
+      </div>
+      <%= paginate @topics %>
+    </main>
+  </div>
+
+<br>

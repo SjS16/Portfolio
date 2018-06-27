@@ -9,7 +9,7 @@
 }
 
 .blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 2.25rem;
 }
 
@@ -17,8 +17,13 @@
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6, {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .display-4 {
@@ -120,6 +125,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #999;
 }
 
+.blog-post-meta a{
+  margin: 0px 5px
+}
+
 /*
  * Footer
  */
@@ -195,4 +204,26 @@ a:hover {
 
 #comments {
   margin-top: 50px
+}
+
+.topic-post {
+  margin: 15px
+}
+
+.topic-details {
+  margin: 5px 25px
+}
+
+.topic-time {
+  font-style: italic;
+  font-size: .8em;
+}
+
+.active-topic {
+  font-weight: 900
+}
+
+.breadcrumb-icon {
+      font-size: 1.25em;
+    margin-top: -.2em;
 }
