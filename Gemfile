@@ -76,3 +76,5 @@ gem "twitter"
 gem 'redis', '~> 3.3', '>= 3.3.1'
 gem 'redcarpet'
 gem 'coderay'
+
+ruby "2.5.1"
