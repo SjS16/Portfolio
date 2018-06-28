@@ -20,6 +20,7 @@ Bundler.require(*Rails.groups)
 module DevcampPortfolio
   class Application < Rails::Application
     config.eager_load_paths << "#{Rails.root}/lib"
+    config.secret_key_base = ENV["SECRET_KEY_BASE"]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     # Settings in config/environments/* take precedence over those specified here.
