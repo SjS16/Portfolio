@@ -73,7 +73,7 @@ gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem "cocoon"
 gem 'gritter', git: 'https://github.com/jordanhudgens/gritter'
 gem "twitter"
-gem 'redis', '~> 3.3', '>= 3.3.5'
+gem 'redis', '~> 3.3', '>= 3.3.1'
 gem 'redcarpet'
 gem 'coderay'
 
