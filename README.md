@@ -15,12 +15,12 @@ This portfolio allows you to display your skills as well as engage with vistors 
 
 !["Admin Blog Home Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%208.51.26%20PM.png)
 !["New Blog Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%209.02.19%20PM.png)
-!["Admin Portfolio Home Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%208.51.48%20PM.png)
+!["Blog Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%209.02.46%20PM.png)
 !["Contact Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%208.56.27%20PM.png)
 !["Twitter Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%208.58.04%20PM.png)
 !["Home Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%208.57.46%20PM.png)
 !["Registration Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%208.57.55%20PM.png)
-!["Blog Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%209.02.46%20PM.png)
+!["Admin Portfolio Home Page"](https://raw.githubusercontent.com/SjS16/Portfolio/master/app/assets/readme_images/Screen%20Shot%202018-07-03%20at%208.51.48%20PM.png)
 
 ## Dependencies
 
